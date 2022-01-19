@@ -5,22 +5,19 @@ import org.testng.annotations.Test;
 
 public class PoligrafTest extends Base{
 
-
+private static final String URL="http://poligraf-centr.ru";
     @Test //finished
     public void testLogo() {
        // final String expectedLogoText = "Internet Brands";
-        getDriver().get("http://poligraf-centr.ru");
+        getDriver().get(URL);
         WebElement logo = getDriver().findElement(By.className("logo"));
         Assert.assertTrue(logo.isDisplayed());
     }
 
-
-
-
         @Test
         public void testLoginError() {
 
-            getDriver().get("http://poligraf-centr.ru");
+            getDriver().get(URL);
             WebElement username=getDriver().findElement(By.id("user_email_login"));
             WebElement password=getDriver().findElement(By.id("user_password"));
             WebElement login=getDriver().findElement(By.name("commit"));
@@ -39,7 +36,7 @@ public class PoligrafTest extends Base{
         @Test
         public void testNewPassword(){
 
-            getDriver().get("https://www.browserstack.com/users/sign_in");
+            getDriver().get(URL);
             WebElement link=getDriver().findElement(By.linkText("Forgot password?"));
 
             link.click();
